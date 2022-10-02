@@ -1,5 +1,5 @@
 <template>
-  <div class="flex space-x-4 bg-[#dedff7] px-10 py-2">
+  <div class="flex space-x-4 bg-[#dedff7] px-10 py-2 rounded-2xl">
     <button class="my-40" @click="wageba1">
       <p class="rotate-90 mb-20">წაღება</p>
       <p>{{ sum1 }}</p>
@@ -38,6 +38,9 @@
     <button class="absolute w-28 left-0 top-32 bg-red-400" @click="reset">
       Reset
     </button>
+    <button class="absolute w-28 left-0 bottom-20 bg-red-100" @click="changeMode">
+      {{ card_3 ? '5' :  '3' }} card
+    </button>
   </div>
 </template>
 
@@ -45,6 +48,7 @@
 import { ref } from "vue";
 
 const card = ref(null);
+const card_3 = ref(false);
 const sum1 = ref(0);
 const sum2 = ref(0);
 const sum = ref(0);
@@ -94,6 +98,12 @@ const reset = () => {
   sum1.value = 0;
   sum2.value = 0;
 };
+
+const changeMode = () => {
+  reset()
+  card_3.value = !card_3.value
+  arr.value = card_3.value ? [10, 11, 12, 13, 14] : [6, 7, 8, 9, 10, 11, 12, 13, 14]
+} 
 
 const wageba1 = () => {
   sum1.value += sum.value;
