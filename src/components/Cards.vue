@@ -13,13 +13,13 @@
       />
       <img
         ref="card"
-        :src="`/src/assets/guli/${n}.png`"
+        src="/src/assets/guli/7.png"
         class="w-28 h-40"
         @click="click(n, $event)"
       />
       <img
         ref="card"
-        :src="`/src/assets/jvari/${n}.png`"
+        :src="`/src/assets/jvari/${n.toString()}.png`"
         class="w-28 h-40"
         @click="click(n, $event)"
       />
