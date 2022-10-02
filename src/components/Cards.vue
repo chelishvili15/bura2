@@ -1,5 +1,5 @@
 <template>
-  <div class="flex space-x-4 bg-gray-300 px-10 py-2">
+  <div class="flex space-x-4 bg-[#dedff7] px-10 py-2">
     <button class="my-40" @click="wageba1">
       <p class="rotate-90 mb-20">წაღება</p>
       <p>{{ sum1 }}</p>
@@ -58,6 +58,10 @@ const click = (n, e) => {
     e.target.classList.remove("opacity-100");
     e.target.classList.add("opacity-20");
     sum.value += n > 11 ? n % 10 : n < 10 ? 0 : n;
+  } else if (e.target.classList.contains("opacity-20")) {
+    e.target.classList.remove("opacity-20");
+    e.target.classList.add("opacity-100");
+    sum.value -= n > 11 ? n % 10 : n < 10 ? 0 : n;
   }
 };
 
