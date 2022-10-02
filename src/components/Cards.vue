@@ -34,6 +34,10 @@
       <p class="rotate-90 mb-20">წაღება</p>
       <p>{{ sum2 }}</p>
     </button>
+    <button class="absolute w-28 left-0 bg-red-100" @click="undo">Undo</button>
+    <button class="absolute w-28 left-0 top-32 bg-red-400" @click="reset">
+      Reset
+    </button>
   </div>
 </template>
 
@@ -47,7 +51,11 @@ const sum = ref(0);
 const arr = ref([6, 7, 8, 9, 10, 11, 12, 13, 14]);
 
 const click = (n, e) => {
-  if (!e.target.classList.contains("opacity-20")) {
+  if (
+    !e.target.classList.contains("opacity-20") &&
+    !e.target.classList.contains("opacity-0")
+  ) {
+    e.target.classList.remove("opacity-100");
     e.target.classList.add("opacity-20");
     sum.value += n > 11 ? n % 10 : n < 10 ? 0 : n;
   }
@@ -62,7 +70,28 @@ const washla = () => {
   });
 };
 
-const wageba1 = () => { 
+const undo = () => {
+  card.value.map((val) => {
+    if (val.classList.contains("opacity-20")) {
+      val.classList.remove("opacity-20");
+      val.classList.add("opacity-100");
+    }
+  });
+};
+
+const reset = () => {
+  card.value.map((val) => {
+    val.classList.remove("opacity-0");
+    val.classList.remove("opacity-20");
+    val.classList.remove("opacity-100");
+    val.classList.add("opacity-100");
+  });
+  sum.value = 0;
+  sum1.value = 0;
+  sum2.value = 0;
+};
+
+const wageba1 = () => {
   sum1.value += sum.value;
   sum.value = 0;
   washla();
