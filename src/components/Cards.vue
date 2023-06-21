@@ -7,7 +7,7 @@
     <div v-for="n in arr" class="cursor-pointer flex flex-col space-y-3">
       <img
         ref="card"
-        src="../assets/aguri/6.png"
+        src="../../public/11.png"
         class="w-28 h-40"
         @click="click(n, $event)"
       />
