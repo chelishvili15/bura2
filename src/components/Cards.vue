@@ -19,7 +19,7 @@
       />
       <img
         ref="card"
-        :src="`/src/assets/jvari/${n.toString()}.png`"
+        :src="`../assets/jvari/${n.toString()}.png`"
         class="w-28 h-40"
         @click="click(n, $event)"
       />
