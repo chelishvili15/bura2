@@ -7,19 +7,19 @@
     <div v-for="n in arr" class="cursor-pointer flex flex-col space-y-3">
       <img
         ref="card"
-        src="../../public/11.png"
+        :src="getImageUrl(n)"
         class="w-28 h-40"
         @click="click(n, $event)"
       />
       <img
         ref="card"
-        src="/src/assets/guli/7.png"
+        :src="`src/assets/aguri/${n.toString()}.png`"
         class="w-28 h-40"
         @click="click(n, $event)"
       />
       <img
         ref="card"
-        :src="`../assets/jvari/${n.toString()}.png`"
+        :src="`src/assets/jvari/${n.toString()}.png`"
         class="w-28 h-40"
         @click="click(n, $event)"
       />
@@ -53,6 +53,10 @@ const sum1 = ref(0);
 const sum2 = ref(0);
 const sum = ref(0);
 const arr = ref([6, 7, 8, 9, 10, 11, 12, 13, 14]);
+
+const getImageUrl = (n) => {
+  return `src/assets/guli/${n.toString()}.png`
+}
 
 const click = (n, e) => {
   if (
