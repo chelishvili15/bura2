@@ -55,7 +55,7 @@ const sum = ref(0);
 const arr = ref([6, 7, 8, 9, 10, 11, 12, 13, 14]);
 
 const getImageUrl = (n) => {
-  return `src/assets/guli/${n.toString()}.png`
+  return `yvavi/${n.toString()}.png`
 }
 
 const click = (n, e) => {
